@@ -34,12 +34,13 @@ public class Job {
     // TODO: Add custom equals and hashCode methods. Consider two Job objects "equal" when their id fields
     //  match.
 
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Job that = (Job) o;
-        return id == that.id;
+        if (!(o instanceof Job)) return false;
+        Job job = (Job) o;
+        return id == job.id;
     }
 
     @Override

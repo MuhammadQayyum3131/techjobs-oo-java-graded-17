@@ -1,8 +1,9 @@
 package org.launchcode.techjobs.oo;
 
-import org.testng.annotations.Test;
+import org.junit.Test;
 
 import static org.junit.Assert.*;
+import static org.junit.Assert.assertNotEquals;
 
 
 public class JobTest {
@@ -36,5 +37,12 @@ public class JobTest {
         assertEquals("Persistence", testJob3.getCoreCompetency().getValue());
 
 
+    }
+
+    @Test
+    public void testJobsForEquality() {
+        Job testJob4 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+        Job testJob5 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+        assertFalse(testJob4.equals(testJob5));
     }
 }

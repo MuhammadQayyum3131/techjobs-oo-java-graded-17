@@ -4,11 +4,14 @@ import org.junit.Test;
 
 import static org.junit.Assert.*;
 import static org.junit.Assert.assertNotEquals;
+import static java.lang.System.lineSeparator;
+
 
 
 public class JobTest {
     //TODO: Create your unit tests here
 
+    String newLine = System.lineSeparator();
 
     @Test
     public void testSettingJobId() {
@@ -49,15 +52,15 @@ public class JobTest {
     @Test
     public void testToStringStartsAndEndsWithNewLine() {
         Job testJob6 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
-        char letter[] = testJob6.toString().toCharArray();
-        assertEquals('\n', letter[letter.length-1]);
-        assertEquals('\n', letter[0]);
+        assertEquals('\n', testJob6.toString().charAt(0));
+        assertEquals('\n', testJob6.toString().charAt(testJob6.toString().length() - 1));
+
     }
 
     @Test
     public void testToStringContainsCorrectLabelsAndData() {
         Job testJob7 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
-        String checkData = "\nID: " + testJob7.getId() + "\n" +
+        String checkData = "\n" + "ID: " + testJob7.getId() + "\n" +
                 "Name: " + testJob7.getName() + "\n" +
                 "Employer: " + testJob7.getEmployer() + "\n" +
                 "Location: " + testJob7.getLocation() + "\n" +
@@ -69,7 +72,7 @@ public class JobTest {
     @Test
     public void testToStringHandlesEmptyField() {
         Job testJob8 = new Job("Product tester", new Employer(""), new Location("Desert"), new PositionType(""), new CoreCompetency("Persistence"));
-        assertEquals("\nID: " + testJob8.getId() + "\n" +
+        assertEquals("\n" + "ID: " + testJob8.getId() + "\n" +
                 "Name: " + testJob8.getName() + "\n" +
                 "Employer: " + "Data not available" + "\n" +
                 "Location: " + testJob8.getLocation() + "\n" +

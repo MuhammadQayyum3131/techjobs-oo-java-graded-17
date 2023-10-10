@@ -2,6 +2,8 @@ package org.launchcode.techjobs.oo;
 
 import java.util.Objects;
 
+import static java.lang.System.lineSeparator;
+
 public class Job {
 
     private int id;
@@ -98,6 +100,7 @@ public class Job {
 
     @Override
     public String toString() {
+
         String dataNotAvailable = "Data not available";
         if (name == null || name == "") {
             name = dataNotAvailable;
